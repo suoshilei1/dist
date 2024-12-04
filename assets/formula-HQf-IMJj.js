@@ -1,0 +1,1 @@
+import{aa as r}from"./index-DWtISIBF.js";const o=a=>r.post("/formula/",a),e=a=>r.patch("/formula/",a),u=a=>r.get(`/formula/?company_id=${a}`),m=a=>r.delete("/formula/",{data:{id:a.id}}),s=a=>r.get("/formula/view",{params:a});export{o as a,s as c,m as d,e,u as g};

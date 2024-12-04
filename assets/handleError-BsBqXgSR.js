@@ -1,0 +1,1 @@
+/* empty css             *//* empty css                        */import{E as s}from"./index-CZh1RU_w.js";import{E as t}from"./index-DYLzNb0k.js";function f(e,r,o=!1){console.error("Error:",e),o&&s({type:"error",message:e.message||r||"获取数据失败"}),t({title:"错误",type:"error",message:e.message||r||"获取数据失败"})}export{f as h};

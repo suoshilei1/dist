@@ -1,1 +1,0 @@
-import{a9 as r}from"./index-DU5BV6sj.js";const c=(e={})=>r.get("/price_rule/",{params:e}),i=e=>r.post("/price_rule/",e),p=e=>r.patch("/price_rule/",e),s=e=>r.delete("/price_rule/",{data:e}),u=e=>r.put("/price_rule/",e),a=e=>r.get("/price/",{params:e});export{c as a,u as b,i as c,s as d,a as g,p as u};
