@@ -1,1 +1,0 @@
-import{c as r,d as n,e as t,x as i,y as a,q as c}from"./index-oALI6hjD.js";const u={__name:"index",setup(l){let e=i("platform_admin");console.log(e);function o(){try{a({user_id:c().userinfo.id,permissions:e})}catch(s){console.log(s)}}return(s,m)=>(r(),n("div",null,[t("button",{onClick:o},"测试按钮")]))}};export{u as default};

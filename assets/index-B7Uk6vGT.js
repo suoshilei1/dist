@@ -1,1 +1,0 @@
-import{_ as r,r as s,c as l,d as c,e as t,g as i}from"./index-oALI6hjD.js";const d={__name:"index",setup(p){const a=s("Hello Vue 3");return(e,n)=>(l(),c("div",null,[t("h1",null,i(a.value),1),t("button",{onClick:n[0]||(n[0]=(...o)=>e.increment&&e.increment(...o))},"Increment")]))}},_=r(d,[["__scopeId","data-v-ae24695d"]]);export{_ as default};
