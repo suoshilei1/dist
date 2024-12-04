@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"
+                            preserveAspectRatio="xMidYMid meet">
+                            <!-- 背景 -->
+                            <rect width="800" height="600" fill="#f0f9ff" />
+
+                            <!-- 圆形控制面板背景 -->
+                            <circle cx="400" cy="300" r="250" fill="#ffffff" stroke="#2563eb" stroke-width="8" />
+
+                            <!-- 数字环 -->
+                            <circle cx="400" cy="300" r="230" fill="none" stroke="#dbeafe" stroke-width="30"
+                                stroke-dasharray="10 5" />
+
+                            <!-- 智能控制中心六边形 -->
+                            <polygon points="400,200 486,250 486,350 400,400 314,350 314,250" fill="#3b82f6"
+                                opacity="0.9" />
+
+                            <!-- 太阳能板 -->
+                            <g transform="translate(200,180) scale(0.8)">
+                                <rect x="0" y="0" width="120" height="80" fill="#1d4ed8" />
+                                <line x1="40" y1="0" x2="40" y2="80" stroke="#ffffff" stroke-width="2" />
+                                <line x1="80" y1="0" x2="80" y2="80" stroke="#ffffff" stroke-width="2" />
+                                <line x1="0" y1="40" x2="120" y2="40" stroke="#ffffff" stroke-width="2" />
+                            </g>
+
+                            <!-- 风力涡轮机 -->
+                            <g transform="translate(580,200) scale(0.8)">
+                                <rect x="45" y="80" width="10" height="100" fill="#1e40af" />
+                                <!-- 涡轮叶片 -->
+                                <g transform="translate(50,80)">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0"
+                                        dur="4s" repeatCount="indefinite" />
+                                    <path d="M0,0 L-40,-60 A60,60 0 0,1 40,-60 Z" fill="#60a5fa" />
+                                    <path d="M0,0 L-40,-60 A60,60 0 0,1 40,-60 Z" fill="#60a5fa"
+                                        transform="rotate(120)" />
+                                    <path d="M0,0 L-40,-60 A60,60 0 0,1 40,-60 Z" fill="#60a5fa"
+                                        transform="rotate(240)" />
+                                </g>
+                            </g>
+
+                            <!-- 电网连接线 -->
+                            <path d="M400,300 Q300,400 200,380" stroke="#3b82f6" stroke-width="4" fill="none" />
+                            <path d="M400,300 Q500,400 600,380" stroke="#3b82f6" stroke-width="4" fill="none" />
+
+                            <!-- 数据流动效果 -->
+                            <circle cx="0" cy="0" r="4" fill="#2563eb">
+                                <animateMotion path="M400,300 Q300,400 200,380" dur="2s" repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="0" cy="0" r="4" fill="#2563eb">
+                                <animateMotion path="M400,300 Q500,400 600,380" dur="2s" repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- 智能监控图表 -->
+                            <g transform="translate(320,450) scale(0.8)">
+                                <rect x="0" y="0" width="200" height="100" fill="#bfdbfe" rx="10" />
+                                <polyline points="20,80 60,40 100,60 140,20 180,50" stroke="#1d4ed8" stroke-width="3"
+                                    fill="none" />
+                            </g>
+
+                            <!-- 电量指示器 -->
+                            <g transform="translate(400,300)">
+                                <path d="M-20,-15 L0,-5 L20,-15 L0,15 Z" fill="#fcd34d" />
+                            </g>
+
+                            <!-- 状态指示灯 -->
+                            <circle cx="400" cy="250" r="5" fill="#22c55e">
+                                <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+                            </circle>
+                        </svg>
