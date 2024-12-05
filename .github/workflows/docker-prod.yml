@@ -1,0 +1,38 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build -t frontend-prod -f ./deploy/Dockerfile --build-arg FRONT_DOMAIN=\"\" --build-arg BACKEND_DOMAIN=\"\" --build-arg PROXY_TO_BACKEND=http:\\/\\/backend-prod:8080 .
+    
+    - name: Upload
+      env:
+        REGISTER_ADDR: ${{ secrets.REGISTER_ADDR }}
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        IP_ADDR: ${{ secrets.SSH_ADDR }}
+        PORT: ${{ secrets.SSH_PORT }}
+        USERNAME: ${{ secrets.SERVER_USER }}
+      run: |-
+        echo "Uploading Docker Image..."
+        docker tag frontend-prod $REGISTER_ADDR/frontend:${cat ./VERSION}
+        docker tag frontend-prod $REGISTER_ADDR/frontend:prod
+        docker push $REGISTER_ADDR/frontend:${cat ./VERSION}
+        docker push $REGISTER_ADDR/frontend:prod
+        echo "Starting to Replace Container"
+        echo "${SSH_PRIVATE_KEY}" > ~/priv.key
+        chmod 600 ~/priv.key
+        ssh -o StrictHostKeyChecking=no -p "$PORT" -f -n -i ~/priv.key "$USERNAME"@"$IP_ADDR" "docker stop frontend-prod && docker rm frontend-prod && docker pull $REGISTER_ADDR/frontend:prod &&docker run -d -p 9081:80 --restart=always --net=prod  $REGISTER_ADDR/frontend:prod && exit"
+  
+      
