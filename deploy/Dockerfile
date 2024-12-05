@@ -13,7 +13,6 @@ ADD ["./deploy/front.conf", "/etc/nginx/conf.d/front.conf"]
 RUN sed -i "s/FRONT_DOMAIN/${FRONT_DOMAIN}/g" /etc/nginx/conf.d/front.conf
 RUN sed -i "s/BACKEND_DOMAIN/${BACKEND_DOMAIN}/g" /etc/nginx/conf.d/backend.conf
 RUN sed -i "s/PROXY_TO_BACKEND/${PROXY_TO_BACKEND}/g" /etc/nginx/conf.d/backend.conf
-RUN nginx -t || (cat /etc/nginx/conf.d/backend.conf && exit 1)
 CMD ["nginx","-g","daemon off;"]
 EXPOSE 80/tcp
 ENTRYPOINT ["/docker-entrypoint.sh"]
