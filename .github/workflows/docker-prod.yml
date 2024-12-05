@@ -26,9 +26,9 @@ jobs:
         USERNAME: ${{ secrets.SERVER_USER }}
       run: |-
         echo "Uploading Docker Image..."
-        docker tag frontend-prod $REGISTER_ADDR/frontend:${cat ./VERSION}
+        docker tag frontend-prod $REGISTER_ADDR/frontend:$(cat ./VERSION)
         docker tag frontend-prod $REGISTER_ADDR/frontend:prod
-        docker push $REGISTER_ADDR/frontend:${cat ./VERSION}
+        docker push $REGISTER_ADDR/frontend:$(cat ./VERSION)
         docker push $REGISTER_ADDR/frontend:prod
         echo "Starting to Replace Container"
         echo "${SSH_PRIVATE_KEY}" > ~/priv.key
